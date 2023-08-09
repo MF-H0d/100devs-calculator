@@ -6,19 +6,33 @@
 //document.querySelector returns value to input window
 
 
-const buttonInput = document.querySelectorAll('li');  
+// const buttonInput = document.querySelectorAll('li');  
 
-buttonInput.forEach(button =>{
-    button.addEventListener('click', grab);
+// buttonInput.forEach(button =>{
+//     button.addEventListener('click', grab);
+// })
+
+// function grab(event) {
+//     const value = event.target.textContent;
+//     // document.querySelector('input').innerText = value
+//     console.log(value)  
+// }
+
+const keys = document.querySelector('#list')
+const display = document.querySelector('#screen')
+
+keys.addEventListener('click', event => {
+    if (!event.target.closest('button')) return
+
+    const key = event.target
+    const keyValue = key.textContent
+    const displayValue = display.textContent
+    console.log(key.textContent)
+
+    if(displayValue === '0') {
+    display.textContent = keyValue
+    }else{
+        display.textContent = displayValue + keyValue
+    }
+    
 })
-
-// const display = document.getElementById('screen', calculate)
-// const buttons = document.querySelectorAll('button')
-
-// let calculation = []  
-
-function grab(event) {
-    const value = event.target.textContent;
-    // document.querySelector('input').innerText = value
-    console.log(value)  
-}
