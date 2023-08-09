@@ -19,6 +19,6 @@ buttonInput.forEach(button =>{
 
 function grab(event) {
     const value = event.target.textContent;
-    document.querySelector('input').innerText = value
-    // console.log(clickedItemValue)  
+    // document.querySelector('input').innerText = value
+    console.log(value)  
 }
