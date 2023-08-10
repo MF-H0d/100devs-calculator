@@ -18,8 +18,9 @@
 //     console.log(value)  
 // }
 
-const keys = document.querySelector('#list')
-const display = document.querySelector('#screen')
+const calculator = document.querySelector('.calculator')
+const keys = calculator.querySelector('.calculator_keys')
+const display = calculator.querySelector('.calculator_display')
 
 keys.addEventListener('click', event => {
     if (!event.target.closest('button')) return
@@ -27,12 +28,28 @@ keys.addEventListener('click', event => {
     const key = event.target
     const keyValue = key.textContent
     const displayValue = display.textContent
-    console.log(key.textContent)
+    const {type} = key.dataset
+    const {previousKeyType} = calculator.dataset
 
-    if(displayValue === '0') {
-    display.textContent = keyValue
-    }else{
-        display.textContent = displayValue + keyValue
+    //is this a number key?
+    if (type === 'number') {
+        if (displayValue === '0') {
+            display.textContent = keyValue
+        } else if (previousKeyType === 'operator') {
+            display.textContent = keyValue
+        } else {
+            display.textContent = displayValue + keyValue
+        }
+        previousKeyType = 'number'
+}
+
+    // is this an operator key?
+    if (type === 'operator') {
+        console.log(key)
+    
+    previousKeyType = 'operator'
     }
+
+
     
 })

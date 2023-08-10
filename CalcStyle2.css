@@ -9,7 +9,7 @@
     font-weight: 700;
   }
   
-  #screen {
+  .calculator_display {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
