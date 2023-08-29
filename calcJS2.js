@@ -1,55 +1,26 @@
-//event listener grabs value and places it in input window 
-//event listener grabs operator when operator buttons are pushed 
-//function adds operator to existing values (a + +)
-//event lister grabs new value and adds it to existing expression (a + b)
-//event listener grabs '=' signs and completes express
-//document.querySelector returns value to input window
+let listOfNumButtons = document.querySelectorAll('.button[data-type=number]').length
+let listOfOperatorButtons = document.querySelectorAll('.button[data-type=operator]').length
+let calcDisplay = document.querySelector('.calculator_display')
 
 
-// const buttonInput = document.querySelectorAll('li');  
+// const operators = ()
 
-// buttonInput.forEach(button =>{
-//     button.addEventListener('click', grab);
-// })
+for (let i = 0; i < listOfNumButtons; i++) {
 
-// function grab(event) {
-//     const value = event.target.textContent;
-//     // document.querySelector('input').innerText = value
-//     console.log(value)  
-// }
-
-const calculator = document.querySelector('.calculator')
-const keys = calculator.querySelector('.calculator_keys')
-const display = calculator.querySelector('.calculator_display')
-
-keys.addEventListener('click', event => {
-    if (!event.target.closest('button')) return
-
-    const key = event.target
-    const keyValue = key.textContent
-    const displayValue = display.textContent
-    const {type} = key.dataset
-    const {previousKeyType} = calculator.dataset
-
-    //is this a number key?
-    if (type === 'number') {
-        if (displayValue === '0') {
-            display.textContent = keyValue
-        } else if (previousKeyType === 'operator') {
-            display.textContent = keyValue
-        } else {
-            display.textContent = displayValue + keyValue
-        }
-        previousKeyType = 'number'
+    document.querySelectorAll('.button[data-type=number]')[i].addEventListener('click', function() {
+        let currentValue = this.textContent
+        document.querySelector('.calculator_display').innerHTML = currentValue
+    })
 }
 
-    // is this an operator key?
-    if (type === 'operator') {
-        console.log(key)
-    
-    previousKeyType = 'operator'
-    }
+for (let i = 0; i < listOfOperatorButtons; i++) {
+
+    document.querySelectorAll('.button[data-type=operator]')[i].addEventListener('click', function() {
+        let currentValue = this.textContent 
+        document.querySelector('.calculator_display').innerHTML = currentValue
+    })
+}
 
 
-    
-})
+
+
