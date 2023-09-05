@@ -21,6 +21,11 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
   }
+
+  .calculator_display2 {
+    width: 90%;
+    font-size: 40px;
+  }
   
   main {
     display: flex;
